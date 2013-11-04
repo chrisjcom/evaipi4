@@ -5,10 +5,10 @@
 	$latitud = $_GET["lat"];
 	$tiempo = $_GET["time"];
 
-	$instancia = new conexion("localhost","geo","root","");
+	$instancia = new conexion("","","","");
 	$sql = "insert into ip(ip) values('".$ip."')";
 	$instancia->CUD($sql);
-	$sql = "insert into geol(idIp,latitud,longitud,tiempo) values((select idIp from ip where ip = '".$ip."'),'".$latitud."','".$longitud."','".$tiempo."')";
+	$sql = "insert into geol(idIp,latitud,longitud,tiempo) values((SELECT max(idIp) FROM ip),'".$latitud."','".$longitud."','".utf8_decode($tiempo)."')";
 	$instancia->CUD($sql);
 	$sql = "select (select ip from ip i where i.idIp=g.idIp),latitud,longitud,tiempo from geol g";
 	$result = $instancia->Extraer($sql);
