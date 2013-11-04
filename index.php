@@ -5,9 +5,15 @@
 	<title>GeoLocation</title>
 </head>
 <body>
+	<section id="opciones">
+		<p>Obtener Ubicación: <button id="ubicar">Ubicar</button></p>
+		<p>Registrar Ubicación: <button id="registrar">Registrar</button></p>
+	</section>
+	<section id="resultado">LONGITUD,LATITUD,FECHA</section>
+	<section id="mostrar"></section>
 	<div id="mapa">MAPA...</div>
-	<button id="btn_ubicar">Ubicar</button>
-	<script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+	
 	<script src="geo.js"></script>
+	<script src="ajax.js"></script>
 </body>
 </html>

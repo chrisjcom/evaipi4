@@ -10,6 +10,10 @@ function mostrar(pos)
 	var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
 +latlon+"&zoom=14&size=400x300&sensor=false";
 	mapa.innerHTML = "<img src='"+img_url+"''>";
+	var latitud = pos.coords.latitude;
+	var longitud = pos.coords.longitude;
+	var instante = new Date(pos.timestamp);
+	document.getElementById("resultado").innerHTML = latitud+", "+longitud+", "+instante;
 }
 
-document.getElementById("btn_ubicar").addEventListener("click",ubicar,false);
+document.getElementById("ubicar").addEventListener("click",ubicar,false);
